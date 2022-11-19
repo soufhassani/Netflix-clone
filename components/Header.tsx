@@ -4,9 +4,11 @@ import Link from "next/link";
 import { default as loginImg } from "../public/assets/login-img.png";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import useAuth from "../hooks/useAuth";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { logout } = useAuth();
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -43,13 +45,14 @@ const Header = () => {
         <SearchIcon className=" hidden text-white w-6 h-6 sm:inline" />
         <p className="hidden lg:inline">kids</p>
         <BellIcon className="w-6 h-6 text-white" />
-        <Link href="/account">
-          <Image
-            src={loginImg}
-            alt="/"
-            className="cursor-pointer rounded-full"
-          />
-        </Link>
+        {/* <Link href="/account"> */}
+        <Image
+          onClick={logout}
+          src={loginImg}
+          alt="/"
+          className="cursor-pointer rounded-full"
+        />
+        {/* </Link> */}
       </div>
     </header>
   );

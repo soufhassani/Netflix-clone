@@ -25,14 +25,14 @@ const Row = ({ title, movies }: Props) => {
           : scrollLeft + clientWidth;
       rowRef.current.scrollTo({ left: scrollTo, behavior: "smooth" });
     }
-    console.log(rowRef.current!.clientWidth, rowRef.current!.scrollLeft);
-    checkScrollLeft();
+    // console.log(rowRef.current!.clientWidth, rowRef.current!.scrollLeft);
+    // checkScrollLeft();
   };
-  const checkScrollLeft = () => {
-    if (rowRef.current!.scrollLeft < rowRef.current!.clientWidth) {
-      setIsMoved(false);
-    }
-  };
+  // const checkScrollLeft = () => {
+  //   if (rowRef.current!.scrollLeft < rowRef.current!.clientWidth) {
+  //     setIsMoved(false);
+  //   }
+  // };
 
   return (
     <div className="h-40 space-y-0.5 md:space-y-2">
